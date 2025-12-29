@@ -5,6 +5,7 @@
 
 # resultado = soma(12,15)
 # print(resultado)
+#############################
 
 #Função de Validação
 # def validacao(number):
@@ -15,6 +16,7 @@
     
 # resultado = validacao(-23)
 # print(resultado)
+#############################
 
 #Função de Media
 # def media(n1, n2, n3):
@@ -24,7 +26,7 @@
 
 # resultado = media(10, 8, 5)
 # print(f"{resultado:.1f}")
-
+#############################
 
 #DESAFIO FINAL 
 
