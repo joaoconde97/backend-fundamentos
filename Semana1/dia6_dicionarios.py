@@ -1,3 +1,5 @@
+import os
+import json
 lancamentos = []
 
 def calcular_saldo(lancamentos):
@@ -16,6 +18,18 @@ def adicionar_lancamento(valor_int, tipo):
     }
     lancamentos.append(lancamento)
 
+def carregar_lancamentos():
+    caminho_arquivo = "doc_lancamentos.txt"
+
+    if os.path.exists(caminho_arquivo):
+        with open(caminho_arquivo, "r", encoding="utf-8") as arquivo:
+            lancamentos = json.load(arquivo)
+            return lancamentos
+    
+    else:
+        return []
+    
+# def salvar_lancamentos():
 
 
 while  True:
