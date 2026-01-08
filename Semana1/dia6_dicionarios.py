@@ -1,6 +1,5 @@
 import os
 import json
-lancamentos = []
 
 def calcular_saldo(lancamentos):
     total = 0
@@ -29,8 +28,13 @@ def carregar_lancamentos():
     else:
         return []
     
-# def salvar_lancamentos():
+def salvar_lancamentos(lancamentos):
+    caminho_arquivo = "doc_lancamentos.txt"
 
+    with open(caminho_arquivo, "w", encoding="utf-8") as arquivo:
+        json.dump(lancamentos, arquivo)
+
+lancamentos = carregar_lancamentos()
 
 while  True:
     print("*********************")
@@ -54,6 +58,7 @@ while  True:
             valor_int = int(valor)
             tipo = "entrada"
             adicionar_lancamento(valor_int, tipo)
+            salvar_lancamentos(lancamentos)
             
     
         else:
@@ -67,6 +72,7 @@ while  True:
             valor_int = int(valor)
             tipo = "saida"
             adicionar_lancamento(valor_int, tipo)
+            salvar_lancamentos(lancamentos)
 
         else:
             print("Valor Inválido")
