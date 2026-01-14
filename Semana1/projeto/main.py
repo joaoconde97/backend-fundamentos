@@ -3,6 +3,15 @@ from dados import salvar_lancamentos, carregar_lancamentos
 
 lancamentos = carregar_lancamentos()
 
+def ler_inteiro():
+    while True:
+        entrada = input("Digite um valor: ")
+        try:
+            valor = int(entrada)
+            return valor
+        except ValueError:
+            print("Valor invalido. Digite um numero inteiro.")
+
 while  True:
     print("*********************")
     print("MENU")
@@ -15,34 +24,21 @@ while  True:
 
     opcao = input("Digite a opção desejada: ")
     print("*********************")
-    opcao = opcao.strip().lower()
+    opcao = opcao.strip()
 
     if opcao == "1":
-        valor = input("Digite um valor: ")
-        valor = valor.strip().lower()
-        
-        if valor.isdigit():
-            valor_int = int(valor)
-            tipo = "entrada"
-            adicionar_lancamento(lancamentos, valor_int, tipo)
-            salvar_lancamentos(lancamentos)
-            
+        tipo = "entrada"
+        valor_int = ler_inteiro()
+        adicionar_lancamento(lancamentos, valor_int, tipo)
+        salvar_lancamentos(lancamentos)
     
-        else:
-            print("Valor Inválido")
 
     elif opcao == "2":
-        valor = input("Digite um valor: ")
-        valor = valor.strip().lower()
-        
-        if valor.isdigit():
-            valor_int = int(valor)
-            tipo = "saida"
-            adicionar_lancamento(lancamentos, valor_int, tipo)
-            salvar_lancamentos(lancamentos)
+        tipo = "saida"
+        valor_int = ler_inteiro()
+        adicionar_lancamento(lancamentos, valor_int, tipo)
+        salvar_lancamentos(lancamentos)
 
-        else:
-            print("Valor Inválido")
 
     elif opcao == "3":
         resultado = calcular_saldo(lancamentos)
